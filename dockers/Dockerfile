@@ -16,7 +16,7 @@ RUN install2.r --error \
     -r 'http://cran.rstudio.com' \
     googleAuthR shinyFiles googleCloudStorageR \
     bigQueryR gmailr googleAnalyticsR cronR googleComputeEngineR searchConsoleR \
-    Quandl data.table \
+    Quandl data.table anytime \
     ## install Github packages
     && Rscript -e "devtools::install_github(c('MarkEdmondson1234/googleLanguageR'))" \
     ## clean up
