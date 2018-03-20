@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
     nano \
     libxml2-dev \
     default-jre \
+    openssh-server \
+    openssh-client
     ## clean up
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/ \     
