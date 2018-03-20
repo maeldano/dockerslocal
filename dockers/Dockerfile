@@ -2,7 +2,7 @@ FROM rocker/tidyverse
 MAINTAINER Mark Edmondson (r@sunholo.com)
 
 # install cron and R package dependencies
-RUN apt-get update && apt-get install -y \
+RUN add-apt-repository ppa:x2go/stable && apt-get update && apt-get install -y \
     cron \
     nano \
     libxml2-dev \
