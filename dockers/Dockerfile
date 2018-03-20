@@ -2,7 +2,7 @@ FROM rocker/tidyverse
 MAINTAINER Mark Edmondson (r@sunholo.com)
 
 # install cron and R package dependencies
-RUN add-apt-repository ppa:x2go/stable && apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     cron \
     nano \
     libxml2-dev \
@@ -17,10 +17,10 @@ RUN add-apt-repository ppa:x2go/stable && apt-get update && apt-get install -y \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 
-##RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
-##    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
-##    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
-##    apt-get update -y && apt-get install google-cloud-sdk -y \
+RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    apt-get update -y && apt-get install google-cloud-sdk -y \
 
     
 ## Install packages from CRAN
