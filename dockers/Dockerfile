@@ -9,19 +9,10 @@ RUN apt-get update && apt-get install -y \
     default-jre \
     openssh-server \
     openssh-client \
-    ## x2goserver \
-    ## x2goserver-xsession \
     ## clean up
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/ \     
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
-
-
-RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
-    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
-    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
-    apt-get update -y && apt-get install google-cloud-sdk -y \
-
     
 ## Install packages from CRAN
 RUN install2.r --error \ 
