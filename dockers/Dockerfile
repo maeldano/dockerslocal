@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     proj-bin \
     libgdal-dev \
     libproj-dev \
+    tzdata \
     gdal-bin \
     ## clean up
     && apt-get clean \ 
@@ -28,7 +29,7 @@ RUN install2.r --error \
     ## clean up
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 
-
+ENV TZ=Europe/Oslo
 RUN sudo echo "Europe/Oslo" > /etc/timezone
 
 ## Start cron
